@@ -506,7 +506,7 @@
    "link_fieldname": "party"
   }
  ],
- "modified": "2025-06-30 18:01:52.668935",
+ "modified": "2025-07-21 23:52:00.882142",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Supplier",
@@ -571,6 +571,6 @@
  "sort_field": "modified",
  "sort_order": "ASC",
  "states": [],
- "title_field": "sync_id_api",
+ "title_field": "supplier_name",
  "track_changes": 1
 }

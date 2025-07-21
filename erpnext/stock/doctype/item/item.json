@@ -920,7 +920,7 @@
  "image_field": "image",
  "links": [],
  "make_attachments_public": 1,
- "modified": "2025-06-28 13:26:21.443989",
+ "modified": "2025-07-21 23:55:46.620550",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",
@@ -992,6 +992,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "item_code",
+ "title_field": "item_name",
  "track_changes": 1
 }
