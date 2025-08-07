@@ -1,7 +1,10 @@
 {
  "actions": [],
  "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "prompt",
  "creation": "2023-05-29 13:02:17.121296",
+ "default_view": "List",
  "description": "A logical Warehouse against which stock entries are made.",
  "doctype": "DocType",
  "document_type": "Setup",
@@ -9,7 +12,10 @@
  "field_order": [
   "warehouse_detail",
   "disabled",
+  "warehouse_id",
   "warehouse_name",
+  "warehouse_shortname",
+  "bpjs_code",
   "column_break_3",
   "is_group",
   "parent_warehouse",
@@ -257,16 +263,35 @@
    "fieldname": "is_rejected_warehouse",
    "fieldtype": "Check",
    "label": "Is Rejected Warehouse"
+  },
+  {
+   "fieldname": "warehouse_shortname",
+   "fieldtype": "Data",
+   "label": "Singkatan"
+  },
+  {
+   "fieldname": "bpjs_code",
+   "fieldtype": "Data",
+   "label": "Kode BPJS"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "warehouse_id",
+   "fieldtype": "Data",
+   "label": "Warehouse ID",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "icon": "fa fa-building",
  "idx": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2024-08-14 16:08:15.733597",
+ "modified": "2025-08-07 21:37:08.878311",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Warehouse",
+ "naming_rule": "Set by user",
  "nsm_parent_field": "parent_warehouse",
  "owner": "Administrator",
  "permissions": [
@@ -316,9 +341,12 @@
    "role": "Manufacturing User"
   }
  ],
+ "row_format": "Dynamic",
+ "search_fields": "warehouse_shortname,bpjs_code",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "warehouse_name",
  "track_changes": 1
 }

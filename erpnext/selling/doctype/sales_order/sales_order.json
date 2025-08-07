@@ -2,7 +2,7 @@
  "actions": [],
  "allow_auto_repeat": 1,
  "allow_import": 1,
- "autoname": "naming_series:",
+ "autoname": "field:sync_id_api",
  "creation": "2013-06-18 12:39:59",
  "doctype": "DocType",
  "document_type": "Document",
@@ -12,6 +12,7 @@
   "customer_section",
   "column_break0",
   "title",
+  "sales_number",
   "naming_series",
   "customer",
   "customer_name",
@@ -20,6 +21,7 @@
   "column_break_7",
   "transaction_date",
   "delivery_date",
+  "sync_id_api",
   "column_break1",
   "po_no",
   "po_date",
@@ -185,7 +187,7 @@
   },
   {
    "allow_on_submit": 1,
-   "default": "{customer_name}",
+   "default": "{sales_number}",
    "fieldname": "title",
    "fieldtype": "Data",
    "hidden": 1,
@@ -1658,17 +1660,31 @@
    "hidden": 1,
    "label": "Has Unit Price Items",
    "no_copy": 1
+  },
+  {
+   "fieldname": "sync_id_api",
+   "fieldtype": "Data",
+   "label": "API ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "sales_number",
+   "fieldtype": "Data",
+   "label": "Number",
+   "reqd": 1
   }
  ],
  "icon": "fa fa-file-text",
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-03 16:49:00.676927",
+ "modified": "2025-07-22 22:25:19.923694",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Sales Order",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -1740,7 +1756,7 @@
  "sort_order": "DESC",
  "states": [],
  "timeline_field": "customer",
- "title_field": "customer_name",
+ "title_field": "sales_number",
  "track_changes": 1,
  "track_seen": 1
 }

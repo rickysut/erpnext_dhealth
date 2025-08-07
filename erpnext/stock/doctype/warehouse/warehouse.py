@@ -23,12 +23,14 @@ class Warehouse(NestedSet):
 		account: DF.Link | None
 		address_line_1: DF.Data | None
 		address_line_2: DF.Data | None
+		bpjs_code: DF.Data | None
 		city: DF.Data | None
 		company: DF.Link
 		default_in_transit_warehouse: DF.Link | None
 		disabled: DF.Check
 		email_id: DF.Data | None
 		is_group: DF.Check
+		is_rejected_warehouse: DF.Check
 		lft: DF.Int
 		mobile_no: DF.Data | None
 		old_parent: DF.Link | None
@@ -37,7 +39,9 @@ class Warehouse(NestedSet):
 		pin: DF.Data | None
 		rgt: DF.Int
 		state: DF.Data | None
+		warehouse_id: DF.Data
 		warehouse_name: DF.Data
+		warehouse_shortname: DF.Data | None
 		warehouse_type: DF.Link | None
 	# end: auto-generated types
 
@@ -50,7 +54,7 @@ class Warehouse(NestedSet):
 				self.name = self.warehouse_name + suffix
 				return
 
-		self.name = self.warehouse_name
+		self.name = self.warehouse_id
 
 	def onload(self):
 		"""load account name for General Ledger Report"""
