@@ -16,7 +16,7 @@ class UOM(Document):
 
 		enabled: DF.Check
 		must_be_whole_number: DF.Check
-		sync_id_api: DF.Int
+		sync_id_api: DF.Data
 		uom_code: DF.Data | None
 		uom_name: DF.Data
 	# end: auto-generated types

@@ -51,15 +51,16 @@
   },
   {
    "fieldname": "sync_id_api",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "API ID",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "icon": "fa fa-compass",
  "idx": 1,
  "links": [],
- "modified": "2025-06-26 23:14:59.569108",
+ "modified": "2025-08-08 16:40:07.849326",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "UOM",
@@ -96,7 +97,7 @@
  ],
  "quick_entry": 1,
  "row_format": "Dynamic",
- "search_fields": "uom_name,uom_code,sync_id_api",
+ "search_fields": "uom_name,uom_code",
  "show_name_in_global_search": 1,
  "show_title_field_in_link": 1,
  "sort_field": "modified",
