@@ -100,7 +100,7 @@
    "no_copy": 1,
    "oldfieldname": "naming_series",
    "oldfieldtype": "Select",
-   "options": "ACC-JV-.YYYY.-",
+   "options": "JE-.MM.YY.-",
    "print_hide": 1,
    "reqd": 1,
    "set_only_once": 1
@@ -557,7 +557,7 @@
    "table_fieldname": "payment_entries"
   }
  ],
- "modified": "2024-07-18 15:32:29.413598",
+ "modified": "2025-10-29 14:34:03.644285",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Journal Entry",
@@ -602,6 +602,7 @@
    "role": "Auditor"
   }
  ],
+ "row_format": "Dynamic",
  "search_fields": "voucher_type,posting_date, due_date, cheque_no",
  "sort_field": "modified",
  "sort_order": "DESC",

@@ -2,7 +2,7 @@
  "actions": [],
  "allow_auto_repeat": 1,
  "allow_import": 1,
- "autoname": "naming_series:",
+ "autoname": "field:sync_id_api",
  "creation": "2013-05-21 16:16:39",
  "doctype": "DocType",
  "document_type": "Document",
@@ -19,6 +19,8 @@
   "column_break_7",
   "transaction_date",
   "schedule_date",
+  "sync_id_api",
+  "vendor_ref",
   "column_break1",
   "company",
   "apply_tds",
@@ -27,6 +29,8 @@
   "has_unit_price_items",
   "supplier_warehouse",
   "amended_from",
+  "is_consigment",
+  "tipe_rekap",
   "accounting_dimensions_section",
   "cost_center",
   "dimension_col_break",
@@ -173,7 +177,6 @@
    "default": "{supplier_name}",
    "fieldname": "title",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Title",
    "no_copy": 1,
    "print_hide": 1,
@@ -186,7 +189,7 @@
    "no_copy": 1,
    "oldfieldname": "naming_series",
    "oldfieldtype": "Select",
-   "options": "PUR-ORD-.YYYY.-",
+   "options": "PO-.YYYY.MM.-",
    "print_hide": 1,
    "reqd": 1,
    "set_only_once": 1
@@ -1294,6 +1297,35 @@
    "hidden": 1,
    "label": "Has Unit Price Items",
    "no_copy": 1
+  },
+  {
+   "fieldname": "sync_id_api",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "API ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "default": "0",
+   "fieldname": "is_consigment",
+   "fieldtype": "Check",
+   "label": "Is Consigment"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "description": "POM = Penerimaan Obat PO (medis),\nPOS = Penerimaan Langsung (medis), \nPBM = Penerimaan Barang PO (non medis), \nPBS = Penerimaan Langsung (non medis)\n",
+   "fieldname": "tipe_rekap",
+   "fieldtype": "Select",
+   "label": "Tipe Rekap",
+   "options": "POM\nPOS\nPBM\nPBS"
+  },
+  {
+   "fieldname": "vendor_ref",
+   "fieldtype": "Data",
+   "label": "Vendor Ref"
   }
  ],
  "grid_page_length": 50,
@@ -1301,11 +1333,11 @@
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-09 16:54:08.836106",
+ "modified": "2025-08-20 23:17:28.955654",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Purchase Order",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -1355,6 +1387,6 @@
  "sort_order": "DESC",
  "states": [],
  "timeline_field": "supplier",
- "title_field": "supplier_name",
+ "title_field": "title",
  "track_changes": 1
 }

@@ -62,6 +62,7 @@ class SalesOrder(SellingController):
 
 		additional_discount_percentage: DF.Float
 		address_display: DF.SmallText | None
+		admission_type: DF.Literal["", "DATANG SENDIRI", "Klinik", "Referral Doctor (Eksternal)", "Referral Doctor (Internal)", "Rujukan Luar RS", "Rujukan internal RS", "Rumah Sakit"]
 		advance_paid: DF.Currency
 		amended_from: DF.Link | None
 		amount_eligible_for_commission: DF.Currency
@@ -75,6 +76,7 @@ class SalesOrder(SellingController):
 		base_rounding_adjustment: DF.Currency
 		base_total: DF.Currency
 		base_total_taxes_and_charges: DF.Currency
+		bed_type_id: DF.Data | None
 		billing_status: DF.Literal["Not Billed", "Fully Billed", "Partly Billed", "Closed"]
 		campaign: DF.Link | None
 		commission_rate: DF.Float
@@ -115,13 +117,18 @@ class SalesOrder(SellingController):
 		letter_head: DF.Link | None
 		loyalty_amount: DF.Currency
 		loyalty_points: DF.Int
+		modeofpayment: DF.Link | None
+		nama_asuransi: DF.Data | None
 		named_place: DF.Data | None
-		naming_series: DF.Literal["SAL-ORD-.YYYY.-"]
+		naming_series: DF.Literal["ORD-.YYYY.-"]
 		net_total: DF.Currency
-		order_type: DF.Literal["", "Sales", "Maintenance", "Shopping Cart"]
+		no_asuransi: DF.Data | None
+		order_type: DF.Literal["RUMAH_SAKIT", "KARYAWAN", "BEBAS"]
 		other_charges_calculation: DF.TextEditor | None
 		packed_items: DF.Table[PackedItem]
 		party_account_currency: DF.Link | None
+		patient_type: DF.Literal["APS/OPD/Rajal", "IPD/Ranap", "Emergency/IGD", "DayCare", "MCU", "Pharmacy"]
+		payer_id: DF.Link | None
 		payment_schedule: DF.Table[PaymentSchedule]
 		payment_terms_template: DF.Link | None
 		per_billed: DF.Percent
@@ -132,7 +139,9 @@ class SalesOrder(SellingController):
 		po_no: DF.Data | None
 		price_list_currency: DF.Link
 		pricing_rules: DF.Table[PricingRuleDetail]
+		primary_doc_id: DF.Link | None
 		project: DF.Link | None
+		ref_admission_no: DF.Data | None
 		represents_company: DF.Link | None
 		reserve_stock: DF.Check
 		rounded_total: DF.Currency

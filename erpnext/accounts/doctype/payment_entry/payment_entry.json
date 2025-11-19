@@ -2,7 +2,7 @@
  "actions": [],
  "allow_auto_repeat": 1,
  "allow_import": 1,
- "autoname": "naming_series:",
+ "autoname": "field:sync_id_api",
  "creation": "2016-06-01 14:38:51.012597",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -11,10 +11,15 @@
   "naming_series",
   "payment_type",
   "payment_order_status",
+  "sync_id_api",
+  "trans_no",
+  "trans_type",
   "column_break_5",
   "posting_date",
   "company",
   "mode_of_payment",
+  "edc_machine",
+  "sales_order",
   "party_section",
   "party_type",
   "party",
@@ -109,10 +114,12 @@
   },
   {
    "bold": 1,
+   "default": "PAY-.YYYY.-",
    "fieldname": "naming_series",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Series",
-   "options": "ACC-PAY-.YYYY.-",
+   "options": "PAY-.YYYY.-",
    "print_hide": 1,
    "reqd": 1,
    "set_only_once": 1
@@ -786,6 +793,36 @@
    "options": "No\nYes",
    "print_hide": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "sync_id_api",
+   "fieldtype": "Data",
+   "label": "API ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "trans_no",
+   "fieldtype": "Data",
+   "label": "Trans No.",
+   "reqd": 1
+  },
+  {
+   "fieldname": "edc_machine",
+   "fieldtype": "Link",
+   "label": "EDC Machine",
+   "options": "EDC Machine"
+  },
+  {
+   "fieldname": "trans_type",
+   "fieldtype": "Select",
+   "label": "Trans Type",
+   "options": "\nDeposit Collect\nDeposit Availed\nDeposit Refund\nPelunasan"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Data",
+   "label": "Ref. Sales Order"
   }
  ],
  "grid_page_length": 50,
@@ -800,11 +837,11 @@
    "table_fieldname": "payment_entries"
   }
  ],
- "modified": "2025-05-15 18:01:04.013025",
+ "modified": "2025-10-29 16:40:38.935208",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Payment Entry",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -841,10 +878,12 @@
   }
  ],
  "row_format": "Dynamic",
+ "search_fields": "trans_no, party_name, sync_id_api",
  "show_name_in_global_search": 1,
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "title",
+ "title_field": "trans_no",
  "track_changes": 1
 }

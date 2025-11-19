@@ -64,7 +64,7 @@ class Supplier(TransactionBase):
 		supplier_name: DF.Data
 		supplier_primary_address: DF.Link | None
 		supplier_primary_contact: DF.Link | None
-		supplier_type: DF.Literal["Company", "Individual", "Partnership"]
+		supplier_type: DF.Literal["Company", "Individual", "Partnership", "Doctor"]
 		sync_id_api: DF.Data
 		tax_category: DF.Link | None
 		tax_id: DF.Data | None

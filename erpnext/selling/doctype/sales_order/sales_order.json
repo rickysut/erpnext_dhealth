@@ -22,6 +22,9 @@
   "transaction_date",
   "delivery_date",
   "sync_id_api",
+  "patient_type",
+  "payer_id",
+  "modeofpayment",
   "column_break1",
   "po_no",
   "po_date",
@@ -29,6 +32,16 @@
   "skip_delivery_note",
   "has_unit_price_items",
   "amended_from",
+  "insurance_section",
+  "nama_asuransi",
+  "column_break_ciry",
+  "no_asuransi",
+  "reference_section",
+  "primary_doc_id",
+  "bed_type_id",
+  "column_break_yfik",
+  "ref_admission_no",
+  "admission_type",
   "accounting_dimensions_section",
   "cost_center",
   "dimension_col_break",
@@ -206,7 +219,7 @@
    "no_copy": 1,
    "oldfieldname": "naming_series",
    "oldfieldtype": "Select",
-   "options": "SAL-ORD-.YYYY.-",
+   "options": "ORD-.YYYY.-",
    "print_hide": 1,
    "reqd": 1,
    "set_only_once": 1
@@ -239,15 +252,15 @@
    "read_only": 1
   },
   {
-   "default": "Sales",
+   "default": "BEBAS",
    "fieldname": "order_type",
    "fieldtype": "Select",
    "hide_days": 1,
    "hide_seconds": 1,
-   "label": "Order Type",
+   "label": "Jenis",
    "oldfieldname": "order_type",
    "oldfieldtype": "Select",
-   "options": "\nSales\nMaintenance\nShopping Cart",
+   "options": "RUMAH_SAKIT\nKARYAWAN\nBEBAS",
    "print_hide": 1,
    "reqd": 1
   },
@@ -1485,7 +1498,7 @@
    "read_only": 1
   },
   {
-   "default": "0",
+   "default": "1",
    "fieldname": "skip_delivery_note",
    "fieldtype": "Check",
    "hidden": 1,
@@ -1674,13 +1687,85 @@
    "fieldtype": "Data",
    "label": "Number",
    "reqd": 1
+  },
+  {
+   "fieldname": "patient_type",
+   "fieldtype": "Select",
+   "label": "Patient Type",
+   "options": "APS/OPD/Rajal\nIPD/Ranap\nEmergency/IGD\nDayCare\nMCU\nPharmacy"
+  },
+  {
+   "fieldname": "admission_type",
+   "fieldtype": "Select",
+   "label": "Admission Type",
+   "options": "\nDATANG SENDIRI\nKlinik\nReferral Doctor (Eksternal)\nReferral Doctor (Internal)\nRujukan Luar RS\nRujukan internal RS\nRumah Sakit",
+   "sort_options": 1
+  },
+  {
+   "fieldname": "bed_type_id",
+   "fieldtype": "Data",
+   "label": "Bed Type"
+  },
+  {
+   "fieldname": "payer_id",
+   "fieldtype": "Link",
+   "label": "Payer ",
+   "link_filters": "[]",
+   "options": "Customer"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "insurance_section",
+   "fieldtype": "Section Break",
+   "label": "Insurance Details"
+  },
+  {
+   "fieldname": "nama_asuransi",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "column_break_ciry",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "no_asuransi",
+   "fieldtype": "Data",
+   "label": "Insurance No."
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "reference_section",
+   "fieldtype": "Section Break",
+   "label": "References"
+  },
+  {
+   "fieldname": "primary_doc_id",
+   "fieldtype": "Link",
+   "label": "Doc ID.",
+   "options": "Healthcare Practitioner"
+  },
+  {
+   "fieldname": "column_break_yfik",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ref_admission_no",
+   "fieldtype": "Data",
+   "label": "Referal No."
+  },
+  {
+   "fieldname": "modeofpayment",
+   "fieldtype": "Link",
+   "label": " Mode Of Payment",
+   "options": "Mode of Payment"
   }
  ],
  "icon": "fa fa-file-text",
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-22 22:25:19.923694",
+ "modified": "2025-09-30 09:49:08.544273",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Sales Order",
@@ -1752,11 +1837,12 @@
  "row_format": "Dynamic",
  "search_fields": "status,transaction_date,customer,customer_name, territory,order_type,company",
  "show_name_in_global_search": 1,
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
  "timeline_field": "customer",
- "title_field": "sales_number",
+ "title_field": "title",
  "track_changes": 1,
  "track_seen": 1
 }

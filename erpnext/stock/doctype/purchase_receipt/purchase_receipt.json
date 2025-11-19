@@ -2,7 +2,7 @@
  "actions": [],
  "allow_auto_repeat": 1,
  "allow_import": 1,
- "autoname": "naming_series:",
+ "autoname": "field:sync_id_api",
  "creation": "2013-05-21 16:16:39",
  "doctype": "DocType",
  "document_type": "Document",
@@ -21,11 +21,15 @@
   "posting_date",
   "posting_time",
   "set_posting_time",
+  "sync_id_api",
+  "vendor_ref",
   "column_break_12",
   "company",
   "apply_putaway_rule",
   "is_return",
   "return_against",
+  "is_consignment",
+  "tipe_rekap",
   "accounting_dimensions_section",
   "cost_center",
   "dimension_col_break",
@@ -174,7 +178,6 @@
    "default": "{supplier_name}",
    "fieldname": "title",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Title",
    "no_copy": 1,
    "print_hide": 1
@@ -186,7 +189,7 @@
    "no_copy": 1,
    "oldfieldname": "naming_series",
    "oldfieldtype": "Select",
-   "options": "MAT-PRE-.YYYY.-\nMAT-PR-RET-.YYYY.-",
+   "options": "PRE-.YYYY.-\nPR-RET-.YYYY.-",
    "print_hide": 1,
    "reqd": 1,
    "set_only_once": 1
@@ -213,6 +216,8 @@
    "fieldname": "supplier_name",
    "fieldtype": "Data",
    "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Supplier Name",
    "read_only": 1
   },
@@ -1283,6 +1288,34 @@
    "label": "Dispatch Address",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "sync_id_api",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "API ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "vendor_ref",
+   "fieldtype": "Data",
+   "label": "Vendor Ref."
+  },
+  {
+   "default": "0",
+   "fieldname": "is_consignment",
+   "fieldtype": "Check",
+   "label": "Is Consignment"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "description": "POM = Penerimaan Obat PO (medis), POS = Penerimaan Langsung (medis), PBM = Penerimaan Barang, PO (non medis), PBS = Penerimaan Langsung (non medis)\n",
+   "fieldname": "tipe_rekap",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Tipe Rekap",
+   "options": "POM\nPOS\nPBM\nPBS\nRPOM\nRPOS\nRPBM\nRPBS"
   }
  ],
  "grid_page_length": 50,
@@ -1290,11 +1323,11 @@
  "idx": 261,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-09 16:52:19.323878",
+ "modified": "2025-08-23 23:15:32.490548",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Purchase Receipt",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -1352,8 +1385,9 @@
   }
  ],
  "row_format": "Dynamic",
- "search_fields": "status, posting_date, supplier",
+ "search_fields": "status, posting_date, supplier, title, sync_id_api",
  "show_name_in_global_search": 1,
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

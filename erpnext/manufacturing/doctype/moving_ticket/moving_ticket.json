@@ -1,0 +1,164 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "MT-.YYYY-.####",
+ "creation": "2025-10-13 15:21:31.735314",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "moving_ticket_mt_section",
+  "moving_ticket_no",
+  "column_break_glhd",
+  "date",
+  "moving__ticket_section",
+  "po_no_customer",
+  "customer_code",
+  "customer_name",
+  "jenis_kain",
+  "size_benang",
+  "gramasi_kain_body",
+  "gramasi_kain_rib",
+  "colour_code",
+  "colour_name",
+  "column_break_urmi",
+  "production_order",
+  "column_break_fwkv",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "moving__ticket_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "production_order",
+   "fieldtype": "Link",
+   "label": "Production Order",
+   "options": "Work Order"
+  },
+  {
+   "fieldname": "column_break_fwkv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Tanggal MT"
+  },
+  {
+   "fieldname": "moving_ticket_no",
+   "fieldtype": "Read Only",
+   "label": "Moving Ticket No."
+  },
+  {
+   "fieldname": "po_no_customer",
+   "fieldtype": "Data",
+   "label": "PO No Customer ",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "customer_code.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Customer name",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_code",
+   "fieldtype": "Link",
+   "label": "Customer Code",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_glhd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "moving_ticket_mt_section",
+   "fieldtype": "Section Break",
+   "label": "MOVING TICKET (MT)"
+  },
+  {
+   "fieldname": "jenis_kain",
+   "fieldtype": "Data",
+   "label": "Jenis Kain"
+  },
+  {
+   "fieldname": "size_benang",
+   "fieldtype": "Data",
+   "label": "Size Benang"
+  },
+  {
+   "fieldname": "gramasi_kain_body",
+   "fieldtype": "Data",
+   "label": "Gramasi kain body"
+  },
+  {
+   "fieldname": "gramasi_kain_rib",
+   "fieldtype": "Data",
+   "label": "Gramasi kain rib"
+  },
+  {
+   "fieldname": "colour_code",
+   "fieldtype": "Link",
+   "label": "colour code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "colour_name",
+   "fieldtype": "Data",
+   "label": "Colour name"
+  },
+  {
+   "fieldname": "column_break_urmi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Moving Ticket",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-10-14 17:59:27.282317",
+ "modified_by": "Administrator",
+ "module": "Manufacturing",
+ "name": "Moving Ticket",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

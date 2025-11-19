@@ -42,22 +42,16 @@ class PurchaseOrder(BuyingController):
 	from typing import TYPE_CHECKING
 
 	if TYPE_CHECKING:
-		from frappe.types import DF
-
 		from erpnext.accounts.doctype.payment_schedule.payment_schedule import PaymentSchedule
 		from erpnext.accounts.doctype.pricing_rule_detail.pricing_rule_detail import PricingRuleDetail
-		from erpnext.accounts.doctype.purchase_taxes_and_charges.purchase_taxes_and_charges import (
-			PurchaseTaxesandCharges,
-		)
+		from erpnext.accounts.doctype.purchase_taxes_and_charges.purchase_taxes_and_charges import PurchaseTaxesandCharges
 		from erpnext.buying.doctype.purchase_order_item.purchase_order_item import PurchaseOrderItem
-		from erpnext.buying.doctype.purchase_order_item_supplied.purchase_order_item_supplied import (
-			PurchaseOrderItemSupplied,
-		)
+		from erpnext.buying.doctype.purchase_order_item_supplied.purchase_order_item_supplied import PurchaseOrderItemSupplied
+		from frappe.types import DF
 
 		additional_discount_percentage: DF.Float
 		address_display: DF.SmallText | None
 		advance_paid: DF.Currency
-		advance_payment_status: DF.Literal["Not Initiated", "Initiated", "Partially Paid", "Fully Paid"]
 		amended_from: DF.Link | None
 		apply_discount_on: DF.Literal["", "Grand Total", "Net Total"]
 		apply_tds: DF.Check
@@ -102,6 +96,7 @@ class PurchaseOrder(BuyingController):
 		in_words: DF.Data | None
 		incoterm: DF.Link | None
 		inter_company_order_reference: DF.Link | None
+		is_consigment: DF.Check
 		is_internal_supplier: DF.Check
 		is_old_subcontracting_flow: DF.Check
 		is_subcontracted: DF.Check
@@ -109,7 +104,7 @@ class PurchaseOrder(BuyingController):
 		language: DF.Data | None
 		letter_head: DF.Link | None
 		named_place: DF.Data | None
-		naming_series: DF.Literal["PUR-ORD-.YYYY.-"]
+		naming_series: DF.Literal["PO-.YYYY.MM.-"]
 		net_total: DF.Currency
 		order_confirmation_date: DF.Date | None
 		order_confirmation_no: DF.Data | None
@@ -136,23 +131,13 @@ class PurchaseOrder(BuyingController):
 		shipping_address: DF.Link | None
 		shipping_address_display: DF.SmallText | None
 		shipping_rule: DF.Link | None
-		status: DF.Literal[
-			"",
-			"Draft",
-			"On Hold",
-			"To Receive and Bill",
-			"To Bill",
-			"To Receive",
-			"Completed",
-			"Cancelled",
-			"Closed",
-			"Delivered",
-		]
+		status: DF.Literal["", "Draft", "On Hold", "To Receive and Bill", "To Bill", "To Receive", "Completed", "Cancelled", "Closed", "Delivered"]
 		supplied_items: DF.Table[PurchaseOrderItemSupplied]
 		supplier: DF.Link
 		supplier_address: DF.Link | None
 		supplier_name: DF.Data | None
 		supplier_warehouse: DF.Link | None
+		sync_id_api: DF.Data
 		tax_category: DF.Link | None
 		tax_withholding_category: DF.Link | None
 		tax_withholding_net_total: DF.Currency
@@ -162,6 +147,7 @@ class PurchaseOrder(BuyingController):
 		taxes_and_charges_deducted: DF.Currency
 		tc_name: DF.Link | None
 		terms: DF.TextEditor | None
+		tipe_rekap: DF.Literal["POM", "POS", "PBM", "PBS"]
 		title: DF.Data
 		to_date: DF.Date | None
 		total: DF.Currency
@@ -169,6 +155,7 @@ class PurchaseOrder(BuyingController):
 		total_qty: DF.Float
 		total_taxes_and_charges: DF.Currency
 		transaction_date: DF.Date
+		vendor_ref: DF.Data | None
 	# end: auto-generated types
 
 	def __init__(self, *args, **kwargs):

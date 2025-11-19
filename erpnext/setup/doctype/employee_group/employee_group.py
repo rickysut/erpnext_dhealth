@@ -12,9 +12,8 @@ class EmployeeGroup(Document):
 	from typing import TYPE_CHECKING
 
 	if TYPE_CHECKING:
-		from frappe.types import DF
-
 		from erpnext.setup.doctype.employee_group_table.employee_group_table import EmployeeGroupTable
+		from frappe.types import DF
 
 		employee_group_name: DF.Data
 		employee_list: DF.Table[EmployeeGroupTable]

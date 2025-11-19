@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "format:{bank}-{bank_account_no}",
  "creation": "2017-05-29 21:35:13.136357",
  "doctype": "DocType",
  "document_type": "Setup",
@@ -250,10 +251,11 @@
    "link_fieldname": "default_bank_account"
   }
  ],
- "modified": "2024-10-30 09:41:14.113414",
+ "modified": "2025-10-19 21:54:46.908284",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Bank Account",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -282,9 +284,12 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "search_fields": "bank,account",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "bank_account_no",
  "track_changes": 1
 }

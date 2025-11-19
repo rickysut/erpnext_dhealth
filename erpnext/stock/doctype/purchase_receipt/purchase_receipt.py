@@ -28,16 +28,11 @@ class PurchaseReceipt(BuyingController):
 	from typing import TYPE_CHECKING
 
 	if TYPE_CHECKING:
-		from frappe.types import DF
-
 		from erpnext.accounts.doctype.pricing_rule_detail.pricing_rule_detail import PricingRuleDetail
-		from erpnext.accounts.doctype.purchase_taxes_and_charges.purchase_taxes_and_charges import (
-			PurchaseTaxesandCharges,
-		)
-		from erpnext.buying.doctype.purchase_receipt_item_supplied.purchase_receipt_item_supplied import (
-			PurchaseReceiptItemSupplied,
-		)
+		from erpnext.accounts.doctype.purchase_taxes_and_charges.purchase_taxes_and_charges import PurchaseTaxesandCharges
+		from erpnext.buying.doctype.purchase_receipt_item_supplied.purchase_receipt_item_supplied import PurchaseReceiptItemSupplied
 		from erpnext.stock.doctype.purchase_receipt_item.purchase_receipt_item import PurchaseReceiptItem
+		from frappe.types import DF
 
 		additional_discount_percentage: DF.Float
 		address_display: DF.SmallText | None
@@ -78,6 +73,7 @@ class PurchaseReceipt(BuyingController):
 		incoterm: DF.Link | None
 		instructions: DF.SmallText | None
 		inter_company_reference: DF.Link | None
+		is_consignment: DF.Check
 		is_internal_supplier: DF.Check
 		is_old_subcontracting_flow: DF.Check
 		is_return: DF.Check
@@ -88,7 +84,7 @@ class PurchaseReceipt(BuyingController):
 		lr_date: DF.Date | None
 		lr_no: DF.Data | None
 		named_place: DF.Data | None
-		naming_series: DF.Literal["MAT-PRE-.YYYY.-", "MAT-PR-RET-.YYYY.-"]
+		naming_series: DF.Literal["PRE-.YYYY.-", "PR-RET-.YYYY.-"]
 		net_total: DF.Currency
 		other_charges_calculation: DF.TextEditor | None
 		per_billed: DF.Percent
@@ -114,9 +110,7 @@ class PurchaseReceipt(BuyingController):
 		shipping_address: DF.Link | None
 		shipping_address_display: DF.SmallText | None
 		shipping_rule: DF.Link | None
-		status: DF.Literal[
-			"", "Draft", "Partly Billed", "To Bill", "Completed", "Return Issued", "Cancelled", "Closed"
-		]
+		status: DF.Literal["", "Draft", "Partly Billed", "To Bill", "Completed", "Return Issued", "Cancelled", "Closed"]
 		subcontracting_receipt: DF.Link | None
 		supplied_items: DF.Table[PurchaseReceiptItemSupplied]
 		supplier: DF.Link
@@ -124,6 +118,7 @@ class PurchaseReceipt(BuyingController):
 		supplier_delivery_note: DF.Data | None
 		supplier_name: DF.Data | None
 		supplier_warehouse: DF.Link | None
+		sync_id_api: DF.Data
 		tax_category: DF.Link | None
 		tax_withholding_net_total: DF.Currency
 		taxes: DF.Table[PurchaseTaxesandCharges]
@@ -132,12 +127,14 @@ class PurchaseReceipt(BuyingController):
 		taxes_and_charges_deducted: DF.Currency
 		tc_name: DF.Link | None
 		terms: DF.TextEditor | None
+		tipe_rekap: DF.Literal["POM", "POS", "PBM", "PBS", "RPOM", "RPOS", "RPBM", "RPBS"]
 		title: DF.Data | None
 		total: DF.Currency
 		total_net_weight: DF.Float
 		total_qty: DF.Float
 		total_taxes_and_charges: DF.Currency
 		transporter_name: DF.Data | None
+		vendor_ref: DF.Data | None
 	# end: auto-generated types
 
 	def __init__(self, *args, **kwargs):

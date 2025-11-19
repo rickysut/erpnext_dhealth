@@ -13,6 +13,7 @@ class SalesOrderItem(Document):
 	from typing import TYPE_CHECKING
 
 	if TYPE_CHECKING:
+		from erpnext.accounts.doctype.mode_of_payment_account.mode_of_payment_account import ModeofPaymentAccount
 		from frappe.types import DF
 
 		actual_qty: DF.Float
@@ -56,6 +57,7 @@ class SalesOrderItem(Document):
 		margin_type: DF.Literal["", "Percentage", "Amount"]
 		material_request: DF.Link | None
 		material_request_item: DF.Data | None
+		mode_of_payment: DF.Table[ModeofPaymentAccount]
 		net_amount: DF.Currency
 		net_rate: DF.Currency
 		ordered_qty: DF.Float

@@ -1,7 +1,12 @@
 {
- "charts": [],
- "content": "[{\"id\":\"nKKr6fjgjb\",\"type\":\"card\",\"data\":{\"card_name\":\"Ledgers\",\"col\":4}},{\"id\":\"p7NY6MHe2Y\",\"type\":\"card\",\"data\":{\"card_name\":\"Financial Statements\",\"col\":4}},{\"id\":\"3AK1Zf0oew\",\"type\":\"card\",\"data\":{\"card_name\":\"Profitability\",\"col\":4}},{\"id\":\"Q_hBCnSeJY\",\"type\":\"card\",\"data\":{\"card_name\":\"Other Reports\",\"col\":4}}]",
- "creation": "2024-01-05 16:09:16.766939",
+ "charts": [
+  {
+   "chart_name": "Bank Balance",
+   "label": "Bank Balance"
+  }
+ ],
+ "content": "[{\"id\":\"nKKr6fjgjb\",\"type\":\"card\",\"data\":{\"card_name\":\"Ledgers\",\"col\":4}},{\"id\":\"mjBfXuytWB\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b></b></span>\",\"col\":12}},{\"id\":\"p9czsfGWmt\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Bank Balance\",\"col\":12}},{\"id\":\"p7NY6MHe2Y\",\"type\":\"card\",\"data\":{\"card_name\":\"Financial Statements\",\"col\":4}},{\"id\":\"3AK1Zf0oew\",\"type\":\"card\",\"data\":{\"card_name\":\"Profitability\",\"col\":4}},{\"id\":\"Q_hBCnSeJY\",\"type\":\"card\",\"data\":{\"card_name\":\"Other Reports\",\"col\":4}}]",
+ "creation": "2025-09-12 13:07:07.786342",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -260,7 +265,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-01-18 22:13:07.596844",
+ "modified": "2025-09-18 13:39:34.293147",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Financial Reports",
