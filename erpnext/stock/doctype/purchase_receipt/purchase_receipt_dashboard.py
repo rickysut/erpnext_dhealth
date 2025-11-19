@@ -29,5 +29,6 @@ def get_data():
 			},
 			{"label": _("Returns"), "items": ["Purchase Receipt"]},
 			{"label": _("Subscription"), "items": ["Auto Repeat"]},
+			
 		],
 	}

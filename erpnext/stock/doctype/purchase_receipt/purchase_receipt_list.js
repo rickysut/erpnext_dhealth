@@ -25,7 +25,6 @@ frappe.listview_settings["Purchase Receipt"] = {
 			return [__("Completed"), "green", "per_billed,=,100|docstatus,=,1"];
 		}
 	},
-
 	onload: function (listview) {
 		listview.page.add_action_item(__("Purchase Invoice"), () => {
 			erpnext.bulk_transaction_processing.create(listview, "Purchase Receipt", "Purchase Invoice");
